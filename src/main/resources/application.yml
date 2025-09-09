@@ -1,15 +1,23 @@
+server:
+  port: ${PORT:8761}
 
-  server:
-    # Railway asigna un puerto automáticamente, se usa la variable de entorno PORT
-    port: ${PORT:8761}
+spring:
+  application:
+    name: eureka-server
 
-## Eureka Server Configuration
 eureka:
+  instance:
+    hostname: ${EUREKA_HOST:ms-eureka.up.railway.app}
+    prefer-ip-address: false
   client:
     registerWithEureka: false
     fetchRegistry: false
-  instance:
-    hostname: ${EUREKA_HOST:localhost}
   server:
     renewal-percent-threshold: 0.90
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  port: ${PORT:8761}
