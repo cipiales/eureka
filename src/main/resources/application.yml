@@ -12,6 +12,9 @@
 ##  renewal-percent-threshold: 0.90
 
 
+
+
+
 server:
   port: ${PORT:8761}
 
@@ -20,4 +23,5 @@ eureka:
     registerWithEureka: false
     fetchRegistry: false
   instance:
-    hostname: ${RAILWAY_STATIC_URL:localhost}
+    hostname: ${RAILWAY_PUBLIC_DOMAIN:ms-eureka.up.railway.app}  # URL pública de Eureka
+    instance-id: ${spring.application.name}:${random.value}        # único por contenedor
