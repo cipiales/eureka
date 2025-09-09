@@ -1,12 +1,23 @@
-server:
-  port: 8761
+## server:
+## port: 8761
 
 ## Eureka Server Configuration
+## eureka:
+## client:
+##  registerWithEureka: false
+##  fetchRegistry: false
+## instance:
+##  hostname: ${EUREKA_HOST:localhost}
+## server:
+##  renewal-percent-threshold: 0.90
+
+
+server:
+  port: ${PORT:8761}
+
 eureka:
   client:
     registerWithEureka: false
     fetchRegistry: false
   instance:
-    hostname: ${EUREKA_HOST:localhost}
-  server:
-    renewal-percent-threshold: 0.90
+    hostname: ${RAILWAY_STATIC_URL:localhost}
